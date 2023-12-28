@@ -1,5 +1,6 @@
 package com.tariq.springboot.tickets.registration;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.NoSuchElementException;
@@ -14,7 +15,7 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public Registration create(@RequestBody Registration registration) { // @RequestBody will make the MVC parse the body of the http request as JSON and convert it into a Registration object
+    public Registration create(@RequestBody @Valid Registration registration) { // @RequestBody will make the MVC parse the body of the http request as JSON and convert it into a Registration object
         return registrationRepository.create(registration);
     }
 
