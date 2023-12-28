@@ -1,9 +1,4 @@
-GET localhost:8080/organizers
+POST localhost:8080/registrations
+Content-Type: application/json
 
-###
-
-GET localhost:8080/events?organizerId=101
-
-###
-
-GET localhost:8080/events/501
+{"productId": 801, "attendeeName": "Tariq Zaitoun"}
