@@ -2,5 +2,26 @@ POST localhost:8080/registrations
 Content-Type: application/json
 
 {
-  "attendeeName": "Tariq"
+  "productId": 801,
+  "attendeeName": "Tariq Z"
+}
+
+###
+
+POST localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "productId": 802,
+  "attendeeName": "Racoon"
+}
+
+###
+
+POST localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "productId": 801,
+  "attendeeName": "Ibrahim"
 }
