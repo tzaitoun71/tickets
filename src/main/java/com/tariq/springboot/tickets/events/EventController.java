@@ -1,16 +1,16 @@
 package com.tariq.springboot.tickets.events;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.ErrorResponse;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 
-/* A controller is a class that contains methods that will be called by Spring Web
-MVC to handle HTTP requests */
-@RestController // this makes it a spring bean and will make spring mvc see it as a controller
+@RestController
 public class EventController {
+
     private final OrganizerRepository organizerRepository;
     private final EventRepository eventRepository;
     private final ProductRepository productRepository;
@@ -33,14 +33,14 @@ public class EventController {
         return eventRepository.findByOrganizerId(organizerId);
     }
 
-    @GetMapping(path = "events/{id}")
+    @GetMapping(path = "/events/{id}")
     public Event getEventById(@PathVariable("id") int eventId) {
         return eventRepository.findById(eventId)
-                .orElseThrow(() -> new NoSuchElementException("Event with id " + eventId + "not found"));
+                .orElseThrow(() -> new NoSuchElementException("Event with id " + eventId + " not found"));
     }
 
     @GetMapping(path = "/products")
-    public List<Product> getProductsByEvent(@RequestParam("eventid") int eventId) {
+    public List<Product> getProductsByEvent(@RequestParam("eventId") int eventId) {
         return productRepository.findByEventId(eventId);
     }
 }

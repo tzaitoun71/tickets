@@ -1,17 +1,6 @@
 package com.tariq.springboot.tickets.events;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-@Repository
-public class OrganizerRepository {
-    private final List<Organizer> organizers = List.of(
-            new Organizer(101, "Apple", "Apple event"),
-            new Organizer(102, "Facebook", "Facebook event")
-    );
-
-    public List<Organizer> findAll() {
-        return organizers;
-    }
+public interface OrganizerRepository extends JpaRepository<Organizer, Integer> {
 }
